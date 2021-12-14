@@ -1,0 +1,12 @@
+/.idea
+/docker/data
+/api/vendor
+/api/.idea
+/api/tests/coverage
+/api/.phpunit.result.cache
+/api/.phpunit.cache
+/mock/vendor
+/mock/.idea
+/mock/tests/coverage
+/mock/.phpunit.result.cache
+/mock/.phpunit.cache

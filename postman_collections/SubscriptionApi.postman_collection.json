@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "c1f8456b-f9d1-42c9-b6a9-33ec94935baf",
+		"name": "SubscriptionApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"pm.environment.set(\"sa_client_token\", response.data.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uid\": \"TEST_UNIQUE_ID_4\",\n    \"app_id\": 4,\n    \"language\": \"tr_TR\",\n    \"os\": \"google\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "Registers device"
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function generateRandomString(n) {",
+							"    let randomString           = '';",
+							"    let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';",
+							"",
+							"    for ( let i = 0; i < n; i++ ) {",
+							"      randomString += characters.charAt(Math.floor(Math.random()*characters.length));",
+							"   }",
+							"   return randomString;",
+							"}",
+							"",
+							"var receipt = generateRandomString(29) + (Math.floor(Math.random() * 100) + 1)",
+							"pm.collectionVariables.set('receipt', receipt);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{sa_client_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receipt\": \"{{receipt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/purchase",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"purchase"
+					]
+				},
+				"description": "Make purchase request"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Subscripion",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{sa_client_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/check",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "sa_client_token",
+			"value": ""
+		},
+		{
+			"key": "receipt",
+			"value": ""
+		}
+	]
+}

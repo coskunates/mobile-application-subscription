@@ -1,0 +1,2 @@
+* * * * * php /var/www/api/artisan schedule:run >> /dev/null 2>&1
+*/5 * * * * php /var/www/api/artisan queue:failed >> /var/www/api/storage/logs/failed_queue.log 2>&1
