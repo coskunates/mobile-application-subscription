@@ -17,8 +17,8 @@ chmod +x install.sh
 Subscription API için Nginx http://localhost:8081 veya http://subscriptionapi.net:8081
  üzerinden hizmet verecek şekilde konfigüre edilmiştir. Repo içerisindeki postman environment collection ını kullanabilmek için aşağıdaki satırları etc/hosts dosyanıza eklemeniz gerekmektedir.
 ```shell
-127.0.0.1 subscriptionapi.net:8081
-127.0.0.1 mockapi.net:8081
+127.0.0.1 subscriptionapi.net
+127.0.0.1 mockapi.net
 ```
 
 ### Açıklamalar
