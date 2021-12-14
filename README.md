@@ -27,3 +27,20 @@ Subscription API için Nginx http://localhost:8081 veya http://subscriptionapi.n
 - CheckSubscriptions cron u işleri RabbitMQ üzerine biriktirmekte ve ilgili consumerlar tarafından eritilmektedir. Burada consumer sayısı 10 olarak belirlenmiştir. Ancak konfiürasyon dosyası üzerinden artırılabilir.
 - Callback mekanizması yine RabbitMQ üzerinde events queue su üzerinden işlemektedir.
 - Raporlama işlemleride Callback mekanizmasında kullanılan event leri dinleyerek RabbitMQ üzerinden işlemektedir.
+
+#### RabbitMQ UI Bağlantı Bilgileri
+URL: http://127.0.0.1:15672 <br />
+Kullanıcı Adı: rabbitmq <br />
+Şifre: rabbitmq
+
+#### Redis Client Bağlantı Bilgileri
+Host: 127.0.0.1 <br />
+Port: 6372 <br />
+
+#### MySQL Client Bağlantı Bilgileri
+Host: 127.0.0.1 <br />
+Port: 4306 <br />
+Kullanıcı Adı: root <br />
+Şifre: root <br />
+Database Adı: subscription <br />
+
