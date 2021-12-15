@@ -37,7 +37,7 @@ Kullanıcı Adı: rabbitmq <br />
 
 #### Redis Client Bağlantı Bilgileri
 Host: 127.0.0.1 <br />
-Port: 6372 <br />
+Port: 6379 <br />
 
 #### MySQL Client Bağlantı Bilgileri
 Host: 127.0.0.1 <br />
